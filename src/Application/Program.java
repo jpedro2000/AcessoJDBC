@@ -32,19 +32,20 @@ public class Program {
             Db.closeConnection();
         }*/
 
+        /*INSERE DADOS NO DB
         SimpleDateFormat sd = new SimpleDateFormat("dd/MM/yyyy");
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         try{
             connection = Db.getConnection();
-            /*preparedStatement = connection.prepareStatement("INSERT INTO seller (Name, Email, BirthDate, BaseSalary, DepartmentId) values"
+            preparedStatement = connection.prepareStatement("INSERT INTO seller (Name, Email, BirthDate, BaseSalary, DepartmentId) values"
                                                             + "(?,?,?,?,?)", Statement.RETURN_GENERATED_KEYS);
             preparedStatement.setString(1, "João Carvalho");
             preparedStatement.setString(2,"joao@hotmail.com");
             preparedStatement.setDate(3, new java.sql.Date(sd.parse("18/07/2000").getTime()));
             preparedStatement.setDouble(4, 5000.0);
             preparedStatement.setInt(5, 1);
-            */
+
 
             preparedStatement = connection.prepareStatement("INSERT INTO department (Name) values ('D1'), ('D2')",
                                                             Statement.RETURN_GENERATED_KEYS);
@@ -69,5 +70,27 @@ public class Program {
             Db.closeStatament(preparedStatement);
             Db.closeConnection();
         }
+        */
+
+        /*ATUALIZA AS INFORMAÇÕES NO DB
+        Connection conn = null;
+        PreparedStatement preparedStatement = null;
+        try{
+            conn = Db.getConnection();
+
+            preparedStatement = conn.prepareStatement("UPDATE seller SET BaseSalary = BaseSalary + ? WHERE (DepartmentId = ?)");
+            preparedStatement.setDouble(1, 1500.0);
+            preparedStatement.setInt(2, 2);
+
+            int rowsAffected = preparedStatement.executeUpdate();
+
+            System.out.println("Rows affected: " + rowsAffected);
+        }catch (SQLException e){
+            e.printStackTrace();
+        }finally{
+            Db.closeStatament(preparedStatement);
+            Db.closeConnection();
+        }*/
+
     }
 }
