@@ -3,8 +3,9 @@ package Application;
 import Db.*;
 import Db.DbIntegrityException;
 import ModelEntities.Department;
+import ModelEntities.Seller;
 
-import java.sql.*;
+import java.util.Date;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
@@ -145,7 +146,8 @@ public class Program {
         }*/
 
         Department obj = new Department(1, "Books");
-        System.out.println(obj);
+        Seller seller = new Seller(1, "João", "joao@hotmail.com", new Date(), 3000.0, obj);
+        System.out.println(seller);
 
     }
 }
