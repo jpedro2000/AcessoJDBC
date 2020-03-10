@@ -2,6 +2,8 @@ package Application;
 
 import Db.*;
 import Db.DbIntegrityException;
+import Model.dao.DaoFactory;
+import Model.dao.SellerDao;
 import ModelEntities.Department;
 import ModelEntities.Seller;
 
@@ -147,6 +149,7 @@ public class Program {
 
         Department obj = new Department(1, "Books");
         Seller seller = new Seller(1, "João", "joao@hotmail.com", new Date(), 3000.0, obj);
+        SellerDao sellerDao = DaoFactory.createSellerDao();
         System.out.println(seller);
 
     }
